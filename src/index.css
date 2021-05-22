@@ -19,6 +19,30 @@ code {
   padding: 50px;
 }
 
+.wrapper {
+  background: #ffffff;
+  position: relative;
+  max-width: 80%;
+  text-align: justify;
+  margin: auto;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  overflow: hidden;
+  overflow-y: scroll;
+  max-height: 100px;
+  box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.12);
+}
+
+.wrapper li {
+  list-style: none;
+  padding-left: 15px;
+}
+
+.wrapper li:hover{
+  cursor: pointer;
+  background:#eaeaea;
+}
+
 .detail-page {
   text-align: center;
   display: block;

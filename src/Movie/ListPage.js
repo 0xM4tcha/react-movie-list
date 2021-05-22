@@ -27,6 +27,11 @@ function MovieList() {
     setPageNumber(1)
   }
 
+  const clickAuto = (e) => {
+    setKeyword(e.Title)
+    setPageNumber(null)
+  }
+
   const handleClickCard = (type, item) => {
     if (type === 'detail') {
       dispatch(setMovieDetail(item))
@@ -57,6 +62,7 @@ function MovieList() {
         items={movies}
         value={keyword}
         change={handleSearch}
+        clickAuto={clickAuto}
       />
       <div className="block"></div>
       <div className="columns is-multiline">

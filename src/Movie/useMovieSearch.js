@@ -26,9 +26,10 @@ export default function useMovieSearch({keyword, pageNumber}) {
       },
       cancelToken: new axios.CancelToken(c => cancel = c)
     }).then(res => {
+      const lengthSearch = res.data.totalResults
       const currentMovies = movies || []
       currentMovies.push(...res.data.Search)
-      setMovies(currentMovies)
+      setMovies(lengthSearch > 10 ? currentMovies : res.data.Search)
       setHasMore(res.data.totalResults > 5 && res.data.totalResults > movies.length)
       setLoading(false)
     }).catch(e=> {
@@ -38,6 +39,5 @@ export default function useMovieSearch({keyword, pageNumber}) {
     })
     return () => cancel()
   }, [keyword, pageNumber])
-
   return { isLoading, isError, movies, hasMore }
 }
